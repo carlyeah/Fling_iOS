@@ -36,6 +36,12 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>BlissPro-Bold.ttf</string>
+		<string>BlissPro-ExtraLight.ttf</string>
+		<string>BlissPro-Regular.ttf</string>
+	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 </dict>

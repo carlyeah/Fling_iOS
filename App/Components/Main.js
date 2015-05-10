@@ -19,25 +19,34 @@ var styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    rightContainer: {
-        flex: 1,
+        padding: 10,
+        flexDirection: 'column',
+        backgroundColor: 'black',
     },
     title: {
-        fontSize: 20,
-        marginBottom: 8,
-        textAlign: 'center',
+        fontFamily: "BlissPro-Bold",
+        flex: 1,
+        flexDirection: 'row',
+        fontSize: 14,
+        textAlign: 'left',
+        color: "white"
     },
-    year: {
-        textAlign: 'center',
+    reviewNumber: {
+        marginRight: 5,
+        fontSize: 14,
+        textAlign: 'left',
+        color: "red",
     },
-    thumbnail: {
-        width: 53,
-        height: 81,
+    star: {
+        height: 10,
+        width: 10,
+        alignSelf: 'center',
+    },
+    topContainer: {
+        flexDirection: 'row',
+    },
+    bottomContainer: {
+        flexDirection: 'row',
     },
     listView: {
         //FIXME this shouldn't have a marginTop to fix the space between the top and the bottom. We need to keep an eye on this
@@ -85,19 +94,31 @@ class Main extends React.Component {
             }).done();
     }
 
-    renderMovie(movie) {
+    renderMotel(motel) {
         return (
             <View style={styles.container}>
-                <Image
-                    source={{uri: movie.posters.thumbnail}}
-                    style={styles.thumbnail}
-                    />
-                <View style={styles.rightContainer}>
-                    <Text style={styles.title}>{movie.title}</Text>
-                    <Text style={styles.year}>{movie.year}</Text>
+                <View style={styles.topContainer}>
+                    <Text style={styles.title}>Kuboz</Text>
+                </View>
+                <View style={styles.bottomContainer}>
+                    <Text style={styles.reviewNumber}>4</Text>
+                    <Image style={styles.star} source={require('image!list_ic_star_active')}/>
+                    <Image style={styles.star} source={require('image!list_ic_star_active')}/>
+                    <Image style={styles.star} source={require('image!list_ic_star_active')}/>
+                    <Image style={styles.star} source={require('image!list_ic_star_active')}/>
+                    <Image style={styles.star} source={require('image!list_ic_star_active')}/>
+                    <Image style={styles.star} source={require('image!list_ic_price')}/>
                 </View>
             </View>
         );
+    }
+
+    renderStars(number){
+        var stars;
+        for(i = 0; i < number; i=i+1){
+
+        }
+        return stars;
     }
 
     footer() {
@@ -108,7 +129,7 @@ class Main extends React.Component {
         return (
             <ListView
                 dataSource={this.state.dataSource}
-                renderRow={this.renderMovie}
+                renderRow={this.renderMotel}
                 style={styles.listView}
                 />
         );
