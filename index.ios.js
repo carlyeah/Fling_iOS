@@ -31,12 +31,12 @@ var styles = StyleSheet.create({
     }
 });
 
-class Fling extends React.Component {
+class FlingiOS extends React.Component {
     render() {
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
-                    Welcome to React L!
+                    Welcome to React Ls!
                 </Text>
                 <Text style={styles.instructions}>
                     To get started, edit index.ios.js
