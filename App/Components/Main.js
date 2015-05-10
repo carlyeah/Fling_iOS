@@ -50,7 +50,7 @@ var styles = StyleSheet.create({
     },
     listView: {
         //FIXME this shouldn't have a marginTop to fix the space between the top and the bottom. We need to keep an eye on this
-        marginTop: -100,
+        marginTop: -64,
         backgroundColor: 'green',
     }
 });
@@ -127,7 +127,9 @@ class Main extends React.Component {
         }
 
         return (
+            //automaticallyAdjustContentInsets - false remove an awkard space in the table parallax control
             <ListView
+                automaticallyAdjustContentInsets={false}
                 dataSource={this.state.dataSource}
                 renderRow={this.renderMotel}
                 style={styles.listView}
