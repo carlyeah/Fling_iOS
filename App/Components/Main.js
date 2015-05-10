@@ -40,7 +40,9 @@ var styles = StyleSheet.create({
         height: 81,
     },
     listView: {
-        backgroundColor: '#F5FCFF',
+        //FIXME this shouldn't have a marginTop to fix the space between the top and the bottom. We need to keep an eye on this
+        marginTop: -100,
+        backgroundColor: 'green',
     }
 });
 
@@ -118,10 +120,8 @@ class Main extends React.Component {
             <ParallaxView
                 style={styles.mainContainer}
                 windowHeight={200}
-                blur="dark"
                 backgroundSource={require('image!intro_ic_heart')}>
                 {this.footer()}
-
             </ParallaxView>
         )
     }
