@@ -1,5 +1,6 @@
 var React = require('react-native');
 var ParallaxView = require("react-native-parallax-view");
+var Styles = require("./styles/ListView")
 
 var {
     View,
@@ -12,48 +13,7 @@ var {
     Image
     } = React;
 
-var styles = StyleSheet.create({
-    mainContainer: {
-        flex: 1,
-        marginTop: 65
-    },
-    container: {
-        flex: 1,
-        padding: 10,
-        flexDirection: 'column',
-        backgroundColor: 'black',
-    },
-    title: {
-        fontFamily: "BlissPro-Bold",
-        flex: 1,
-        flexDirection: 'row',
-        fontSize: 14,
-        textAlign: 'left',
-        color: "white"
-    },
-    reviewNumber: {
-        marginRight: 5,
-        fontSize: 14,
-        textAlign: 'left',
-        color: "red",
-    },
-    star: {
-        height: 10,
-        width: 10,
-        alignSelf: 'center',
-    },
-    topContainer: {
-        flexDirection: 'row',
-    },
-    bottomContainer: {
-        flexDirection: 'row',
-    },
-    listView: {
-        //FIXME this shouldn't have a marginTop to fix the space between the top and the bottom. We need to keep an eye on this
-        marginTop: -64,
-        backgroundColor: 'green',
-    }
-});
+var styles = StyleSheet.create(Styles);
 
 var REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/master/docs/MoviesExample.json';
 
@@ -75,7 +35,7 @@ class Main extends React.Component {
 
     renderLoadingView() {
         return (
-            <View style={styles.container}>
+            <View style={Styles.container}>
                 <Text>
                     Loading movies...
                 </Text>
@@ -96,26 +56,25 @@ class Main extends React.Component {
 
     renderMotel(motel) {
         return (
-            <View style={styles.container}>
-                <View style={styles.topContainer}>
-                    <Text style={styles.title}>Kuboz</Text>
+            <View style={Styles.container}>
+                <View style={Styles.topContainer}>
+                    <Text style={Styles.title}>Kuboz</Text>
                 </View>
-                <View style={styles.bottomContainer}>
-                    <Text style={styles.reviewNumber}>4</Text>
-                    <Image style={styles.star} source={require('image!list_ic_star_active')}/>
-                    <Image style={styles.star} source={require('image!list_ic_star_active')}/>
-                    <Image style={styles.star} source={require('image!list_ic_star_active')}/>
-                    <Image style={styles.star} source={require('image!list_ic_star_active')}/>
-                    <Image style={styles.star} source={require('image!list_ic_star_active')}/>
-                    <Image style={styles.star} source={require('image!list_ic_price')}/>
+                <View style={Styles.bottomContainer}>
+                    <Image style={Styles.star} source={require('image!list_ic_star_active')}/>
+                    <Image style={Styles.star} source={require('image!list_ic_star_active')}/>
+                    <Image style={Styles.star} source={require('image!list_ic_star_active')}/>
+                    <Image style={Styles.star} source={require('image!list_ic_star_active')}/>
+                    <Image style={Styles.star} source={require('image!list_ic_star_active')}/>
+                    <Image style={Styles.star} source={require('image!list_ic_price')}/>
                 </View>
             </View>
         );
     }
 
-    renderStars(number){
+    renderStars(number) {
         var stars;
-        for(i = 0; i < number; i=i+1){
+        for (i = 0; i < number; i = i + 1) {
 
         }
         return stars;
@@ -132,7 +91,7 @@ class Main extends React.Component {
                 automaticallyAdjustContentInsets={false}
                 dataSource={this.state.dataSource}
                 renderRow={this.renderMotel}
-                style={styles.listView}
+                style={Styles.listView}
                 />
         );
     }
@@ -141,9 +100,9 @@ class Main extends React.Component {
     render() {
         return (
             <ParallaxView
-                style={styles.mainContainer}
+                style={Styles.mainContainer}
                 windowHeight={200}
-                backgroundSource={require('image!intro_ic_heart')}>
+                backgroundSource={require('image!motel_demo')}>
                 {this.footer()}
             </ParallaxView>
         )
