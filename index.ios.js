@@ -1,6 +1,8 @@
 'use strict';
 var React = require('react-native');
 var Main = require("./App/Components/Main");
+var Details = require("./App/Components/Details");
+
 var {
     AppRegistry,
     StyleSheet,
@@ -24,7 +26,7 @@ class FlingiOS extends React.Component {
                 initialRoute={
                 {
                 title: "Fling",
-                component: Main
+                component: Details
                 }
                 }/>
         );
