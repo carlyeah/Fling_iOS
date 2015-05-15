@@ -5,37 +5,51 @@
 var Styles = {
     mainContainer: {
         flex: 1,
-            marginTop: 65
+        marginTop: 65
     },
     container: {
         flex: 1,
-            padding: 15,
-            flexDirection: 'column',
-            backgroundColor: 'black',
+        paddingTop: 14,
+        paddingBottom: 14,
+        paddingLeft: 15,
+        flexDirection: 'column',
+        backgroundColor: 'black',
+        margin: 1,
     },
     title: {
-        fontFamily: "BlissPro-Bold",
-            flex: 1,
-            flexDirection: 'row',
-            fontSize: 14,
-            textAlign: 'left',
-            color: "white"
+        fontFamily: "BlissPro",
+        flex: 1,
+        flexDirection: 'row',
+        fontSize: 20,
+        textAlign: 'left',
+        color: "white"
     },
     reviewNumber: {
         marginRight: 5,
-            fontSize: 14,
-            textAlign: 'left',
-            color: "red",
+        fontSize: 14,
+        textAlign: 'left',
+        color: "red",
     },
     star: {
         height: 10,
-            width: 10,
-            alignSelf: 'center',
+        width: 10,
+        alignSelf: 'center',
+    },
+    prices: {
+
     },
     topContainer: {
-        flexDirection: 'row',
+        flexDirection: 'column',
+        marginBottom: 5,
     },
     bottomContainer: {
+        flexDirection: 'row',
+        marginBottom: 5,
+    },
+    starsContainer: {
+        flexDirection: 'row',
+    },
+    pricesContainer: {
         flexDirection: 'row',
     },
     listView: {

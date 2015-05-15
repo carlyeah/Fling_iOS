@@ -56,17 +56,22 @@ class Main extends React.Component {
 
     renderMotel(motel) {
         return (
+            //<Image style={Styles.star} source={require('image!list_ic_price')}/>
             <View style={Styles.container}>
                 <View style={Styles.topContainer}>
                     <Text style={Styles.title}>Kuboz</Text>
                 </View>
                 <View style={Styles.bottomContainer}>
-                    <Image style={Styles.star} source={require('image!list_ic_star_active')}/>
-                    <Image style={Styles.star} source={require('image!list_ic_star_active')}/>
-                    <Image style={Styles.star} source={require('image!list_ic_star_active')}/>
-                    <Image style={Styles.star} source={require('image!list_ic_star_active')}/>
-                    <Image style={Styles.star} source={require('image!list_ic_star_active')}/>
-                    <Image style={Styles.star} source={require('image!list_ic_price')}/>
+                    <View style={Styles.starsContainer}>
+                        <Image style={Styles.star} source={require('image!list_ic_star_active')}/>
+                        <Image style={Styles.star} source={require('image!list_ic_star_active')}/>
+                        <Image style={Styles.star} source={require('image!list_ic_star_active')}/>
+                        <Image style={Styles.star} source={require('image!list_ic_star_active')}/>
+                        <Image style={Styles.star} source={require('image!list_ic_star_active')}/>
+                    </View>
+                    <View style={Styles.pricesContainer}>
+                        <Image style={Styles.prices} source={require('image!list_ic_price')}></Image>
+                    </View>
                 </View>
             </View>
         );
