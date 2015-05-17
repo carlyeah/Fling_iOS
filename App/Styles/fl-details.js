@@ -7,13 +7,13 @@ module.exports = {
     mainContainer: {
         flex: 1,
         marginTop: 65,
-        backgroundColor: Styles.rowBackground,
+        backgroundColor: Styles.detailRowBackground,
     },
     bottomContainer: {
         marginTop: -65,
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: Styles.rowBackground,
+        backgroundColor: Styles.detailRowBackground,
     },
     rowContainer: {
         paddingRight: 16,
@@ -22,7 +22,7 @@ module.exports = {
         flex: 2
     },
     headerContainer:{
-        backgroundColor: Styles.headerBackground,
+        backgroundColor: Styles.detailHeaderBackground,
         paddingRight: 16,
         paddingLeft: 16,
         flexDirection: 'row',

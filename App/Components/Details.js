@@ -21,19 +21,25 @@ class Details extends React.Component {
         return (
             //automaticallyAdjustContentInsets - false remove an awkard space in the table parallax control
             <View style={styles.bottomContainer}>
-                <View style={styles.rowContainer}>
+                <View style={styles.headerContainer}>
                     <Text style={styles.header}>
                         HABITACIONES Y PRECIOS
                     </Text>
                 </View>
                 <View style={styles.rowContainer}>
-                    <Text style={styles.groupElement}>
+                    <Text style={styles.serviceTitle}>
                         Sencilla sin cochera
+                    </Text>
+                    <Text style={styles.motelPrice}>
+                        $300
                     </Text>
                 </View>
                 <View style={styles.rowContainer}>
-                    <Text style={styles.groupElement}>
+                    <Text style={styles.serviceTitle}>
                         Sencilla con cochera
+                    </Text>
+                    <Text style={styles.motelPrice}>
+                        $300
                     </Text>
                 </View>
                 <View style={styles.rowContainer}>
@@ -43,6 +49,71 @@ class Details extends React.Component {
                     <Text style={styles.motelPrice}>
                         $300
                     </Text>
+                </View>
+                <View style={styles.rowContainer}>
+                    <Text style={styles.serviceTitle}>
+                        Junior Suite
+                    </Text>
+                    <Text style={styles.motelPrice}>
+                        $300
+                    </Text>
+                </View>
+                <View style={styles.rowContainer}>
+                    <Text style={styles.serviceTitle}>
+                        Master Suite
+                    </Text>
+                    <Text style={styles.motelPrice}>
+                        $300
+                    </Text>
+                </View>
+                <View style={styles.rowContainer}>
+                    <Text style={styles.serviceTitle}>
+                        Master Suite (2 pisos)
+                    </Text>
+                    <Text style={styles.motelPrice}>
+                        $300
+                    </Text>
+                </View>
+                <View style={styles.headerContainer}>
+                    <Text style={styles.header}>
+                        RATING
+                    </Text>
+                </View>
+                <View style={styles.rowContainer}>
+                    <Text style={styles.serviceTitle}>
+                        Limpieza
+                    </Text>
+                    <View style={Styles.starsContainer}>
+                        <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
+                        <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
+                        <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
+                        <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
+                        <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
+                    </View>
+                </View>
+                <View style={styles.rowContainer}>
+                    <Text style={styles.serviceTitle}>
+                        Seguridad
+                    </Text>
+                    <View style={Styles.starsContainer}>
+                        <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
+                        <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
+                        <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
+                        <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
+                        <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
+                    </View>
+                </View>
+                <View style={styles.rowContainer}>
+                    <Text style={styles.serviceTitle}>
+                        Servicio a la habitación
+                    </Text>
+                    <View style={Styles.starsContainer}>
+                        <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
+                        <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
+                        <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
+                        <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
+                        <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
+                    </View>
                 </View>
             </View>
         );
