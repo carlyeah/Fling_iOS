@@ -1,5 +1,6 @@
 var React = require('react-native');
 var ParallaxView = require("react-native-parallax-view");
+var Separator = require("./Helpers/Separator");
 var Styles = require("../Styles/fl-details");
 
 var {
@@ -34,6 +35,7 @@ class Details extends React.Component {
                         $300
                     </Text>
                 </View>
+                <Separator/>
                 <View style={styles.rowContainer}>
                     <Text style={styles.serviceTitle}>
                         Sencilla con cochera
@@ -42,6 +44,7 @@ class Details extends React.Component {
                         $300
                     </Text>
                 </View>
+                <Separator/>
                 <View style={styles.rowContainer}>
                     <Text style={styles.serviceTitle}>
                         Suite
@@ -50,6 +53,7 @@ class Details extends React.Component {
                         $300
                     </Text>
                 </View>
+                <Separator/>
                 <View style={styles.rowContainer}>
                     <Text style={styles.serviceTitle}>
                         Junior Suite
@@ -58,6 +62,7 @@ class Details extends React.Component {
                         $300
                     </Text>
                 </View>
+                <Separator/>
                 <View style={styles.rowContainer}>
                     <Text style={styles.serviceTitle}>
                         Master Suite
@@ -66,6 +71,7 @@ class Details extends React.Component {
                         $300
                     </Text>
                 </View>
+                <Separator/>
                 <View style={styles.rowContainer}>
                     <Text style={styles.serviceTitle}>
                         Master Suite (2 pisos)
@@ -91,6 +97,7 @@ class Details extends React.Component {
                         <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
                     </View>
                 </View>
+                <Separator/>
                 <View style={styles.rowContainer}>
                     <Text style={styles.serviceTitle}>
                         Seguridad
@@ -103,6 +110,7 @@ class Details extends React.Component {
                         <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
                     </View>
                 </View>
+                <Separator/>
                 <View style={styles.rowContainer}>
                     <Text style={styles.serviceTitle}>
                         Servicio a la habitación
