@@ -2,6 +2,7 @@ var React = require('react-native');
 var ParallaxView = require("react-native-parallax-view");
 var Styles = require("../Styles/fl-main");
 var MotelCell = require("./MotelCell");
+var MotelDetails = require("./Details");
 
 var {
     View,
@@ -85,10 +86,22 @@ class Main extends React.Component {
         );
     }
 
+    selectMotel(motel){
+        console.log('selectHouse');
+
+        this.props.navigator.push({
+            component: MotelDetails,
+            title: 'Details',
+            passProps: {
+                motel: motel,
+            },
+        });
+    }
+
     renderRow(motel){
         return (
             <MotelCell
-                onSelect={() => this.selectHouse(house)}
+                onSelect={() => this.selectMotel(motel)}
                 key={motel.id}
                 motel={motel}
                 />
