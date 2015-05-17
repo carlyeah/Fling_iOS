@@ -90,9 +90,9 @@ class Details extends React.Component {
                         Limpieza
                     </Text>
                     <View style={Styles.starsContainer}>
-                        <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
-                        <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
-                        <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
+                        <Image style={Styles.starImg} source={require('image!list_ic_starblur3')}/>
+                        <Image style={Styles.starImg} source={require('image!list_ic_starblur2')}/>
+                        <Image style={Styles.starImg} source={require('image!list_ic_starblur1')}/>
                         <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
                         <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
                     </View>
@@ -103,7 +103,7 @@ class Details extends React.Component {
                         Seguridad
                     </Text>
                     <View style={Styles.starsContainer}>
-                        <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
+                        <Image style={Styles.starImg} source={require('image!list_ic_starblur5')}/>
                         <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
                         <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
                         <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
@@ -118,6 +118,19 @@ class Details extends React.Component {
                     <View style={Styles.starsContainer}>
                         <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
                         <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
+                        <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
+                        <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
+                        <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
+                    </View>
+                </View>
+                <Separator/>
+                <View style={styles.rowContainer}>
+                    <Text style={styles.serviceTitle}>
+                        Accesorios
+                    </Text>
+                    <View style={Styles.starsContainer}>
+                        <Image style={Styles.starImg} source={require('image!list_ic_starblur2')}/>
+                        <Image style={Styles.starImg} source={require('image!list_ic_starblur1')}/>
                         <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
                         <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>
                         <Image style={Styles.starImg} source={require('image!list_ic_star_active')}/>

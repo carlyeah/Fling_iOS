@@ -21,8 +21,13 @@ var REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/maste
 
 class Main extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        //We need to bind the functions to let the components use them
+        //Check MotelCell component onSelect attribute
+        //http://stackoverflow.com/questions/29532926/this-value-is-null-in-function-react-native
+        this.renderRow = this.renderRow.bind(this);
+        this.selectMotel = this.selectMotel.bind(this);
         this.state = {
             dataSource: new ListView.DataSource({
                 rowHasChanged: (row1, row2) => row1 !== row2
@@ -56,22 +61,17 @@ class Main extends React.Component {
             }).done();
     }
 
-    selectMotel(){
-        console.log('selectMotel');
-
+    selectMotel(motel){
         this.props.navigator.push({
-            component: MotelDetails,
-            title: 'Details',
-            passProps: {
-                motel: this.props.motel
-            }
+            title: "Details",
+            component: MotelDetails
         });
     }
 
     renderRow(motel){
         return (
             <MotelCell
-                onSelect={() => this.selectMotel.bind(this)}
+                onSelect={() => this.selectMotel(motel)}
                 key={motel.id}
                 motel={motel}
                 />

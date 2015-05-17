@@ -52,9 +52,10 @@ module.exports = {
         flex: 1,
         textAlign: "right"
     },
-    star: {
-        height: 10,
-        width: 10,
+    starImg: {
+        height: 12,
+        width: 12,
+        marginLeft: 3,
     },
     starsContainer: {
         alignSelf: 'center',
