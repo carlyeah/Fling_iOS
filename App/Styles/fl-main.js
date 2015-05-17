@@ -5,7 +5,8 @@
 module.exports = {
     mainContainer: {
         flex: 1,
-        marginTop: 65
+        marginTop: 65,
+        backgroundColor: 'black',
     },
     container: {
         flex: 1,
