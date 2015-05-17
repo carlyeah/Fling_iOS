@@ -19,8 +19,9 @@ var styles = StyleSheet.create(Styles);
 
 class MotelCell extends React.Component {
 
+
     render() {
-        return (
+        return(
             <TouchableHighlight underlayColor={'#fafafa'} activeOpacity={0.9} onPress={this.props.onSelect}>
                 <View style={Styles.container}>
                     <View style={Styles.topContainer}>
