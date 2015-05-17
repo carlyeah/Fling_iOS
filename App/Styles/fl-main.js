@@ -9,12 +9,12 @@ module.exports = {
     },
     container: {
         flex: 1,
-        paddingTop: 14,
-        paddingBottom: 14,
-        paddingLeft: 15,
+        //paddingTop: 14,
+        //paddingBottom: 14,
+        paddingLeft: 14,
         flexDirection: 'column',
         backgroundColor: 'black',
-        margin: 1,
+        marginBottom: 1
     },
     title: {
         fontFamily: "BlissPro",
@@ -22,39 +22,64 @@ module.exports = {
         flexDirection: 'row',
         fontSize: 20,
         textAlign: 'left',
-        color: "white"
+        color: "white",
+        paddingTop: 14
     },
     reviewNumber: {
         marginRight: 5,
         fontSize: 14,
         textAlign: 'left',
-        color: "red",
+        color: "red"
     },
-    star: {
-        height: 10,
-        width: 10,
-        alignSelf: 'center',
-    },
-    prices: {
+    favImg: {
 
     },
+    starImg: {
+        height: 12,
+        width: 12,
+        marginRight: 3,
+        alignSelf: 'center'
+    },
+    pricesImg: {
+        marginTop: 4,
+        marginRight: 3
+    },
+    distanceImg: {
+        marginTop: -6
+    },
+    pricesText: {
+        fontFamily: "BlissPro-ExtraLight",
+        fontSize: 16,
+        color: "#88888c"
+    },
     topContainer: {
-        flexDirection: 'column',
-        marginBottom: 5,
+        flexDirection: 'row'
+    },
+    favContainer: {
     },
     bottomContainer: {
         flexDirection: 'row',
-        marginBottom: 5,
+        alignItems: 'center',
+        paddingBottom: 14
     },
     starsContainer: {
-        flexDirection: 'row',
+        flex: 1,
+        flexDirection: 'row'
     },
     pricesContainer: {
+        flex: 1,
         flexDirection: 'row',
+        justifyContent: 'center'
+
+    },
+    distanceContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'center'
     },
     listView: {
         //FIXME this shouldn't have a marginTop to fix the space between the top and the bottom. We need to keep an eye on this
         marginTop: -64,
-        backgroundColor: 'green',
+        backgroundColor: '#3C3C41'
     }
 };

@@ -26,7 +26,7 @@ class FlingiOS extends React.Component {
                 initialRoute={
                 {
                 title: "Fling",
-                component: Details
+                component: Main
                 }
                 }/>
         );

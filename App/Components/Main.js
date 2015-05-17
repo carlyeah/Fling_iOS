@@ -1,6 +1,7 @@
 var React = require('react-native');
 var ParallaxView = require("react-native-parallax-view");
-var Styles = require("../Styles/fl-main")
+var Styles = require("../Styles/fl-main");
+var MotelCell = require("./MotelCell");
 
 var {
     View,
@@ -84,12 +85,14 @@ class Main extends React.Component {
         );
     }
 
-    renderStars(number) {
-        var stars;
-        for (i = 0; i < number; i = i + 1) {
-
-        }
-        return stars;
+    renderRow(motel){
+        return (
+            <MotelCell
+                onSelect={() => this.selectHouse(house)}
+                key={motel.id}
+                motel={motel}
+                />
+        );
     }
 
     footer() {
@@ -102,7 +105,7 @@ class Main extends React.Component {
             <ListView
                 automaticallyAdjustContentInsets={false}
                 dataSource={this.state.dataSource}
-                renderRow={this.renderMotel}
+                renderRow={this.renderRow}
                 style={Styles.listView}
                 />
         );
