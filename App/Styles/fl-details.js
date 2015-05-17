@@ -1,7 +1,7 @@
 /**
  * Created by Carlyeah on 5/17/15.
  */
-var Styles = require("../../globalvariables");
+var Styles = require("../Utils/globalvariables");
 
 module.exports = {
     mainContainer: {

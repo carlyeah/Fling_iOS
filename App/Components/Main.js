@@ -1,6 +1,6 @@
 var React = require('react-native');
 var ParallaxView = require("react-native-parallax-view");
-var Styles = require("./styles/ListView")
+var Styles = require("../Styles/fl-main")
 
 var {
     View,

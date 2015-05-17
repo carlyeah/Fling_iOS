@@ -1,5 +1,6 @@
 var React = require('react-native');
 var ParallaxView = require("react-native-parallax-view");
+var Styles = require("../Styles/fl-details");
 
 var {
     View,
@@ -12,48 +13,7 @@ var {
     Image
     } = React;
 
-var styles = StyleSheet.create({
-    mainContainer: {
-        flex: 1,
-        marginTop: 65
-    },
-    bottomContainer: {
-        marginTop: -65,
-        flex: 1,
-        flexDirection: 'column',
-        backgroundColor: 'black',
-    },
-    rowContainer: {
-        paddingRight: 16,
-        paddingLeft: 16,
-        flexDirection: 'row',
-        flex: 2
-    },
-    header: {
-        paddingTop: 12,
-        paddingBottom: 12,
-        color: "white",
-        fontFamily: "BlissPro-ExtraLight",
-        fontSize: 11
-    },
-    serviceTitle: {
-        paddingTop: 8,
-        paddingBottom: 8,
-        color: "white",
-        fontFamily: "BlissPro-ExtraLight",
-        fontSize: 16,
-        flex: 1
-    },
-    motelPrice: {
-        paddingTop: 8,
-        paddingBottom: 8,
-        color: "white",
-        fontFamily: "BlissPro-Bold",
-        fontSize: 18,
-        flex: 1,
-        textAlign: "right"
-    }
-});
+var styles = StyleSheet.create(Styles);
 
 class Details extends React.Component {
 
