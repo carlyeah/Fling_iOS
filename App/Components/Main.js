@@ -23,6 +23,7 @@ class Main extends React.Component {
 
     constructor(props) {
         super(props);
+        //HEADSUP
         //We need to bind the functions to let the components use them
         //Check MotelCell component onSelect attribute
         //http://stackoverflow.com/questions/29532926/this-value-is-null-in-function-react-native
