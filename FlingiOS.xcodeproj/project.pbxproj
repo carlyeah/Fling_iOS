@@ -26,6 +26,10 @@
 		722DEA7B1B001E3C00C477A6 /* BlissPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 722DEA781B001E3C00C477A6 /* BlissPro-Bold.ttf */; };
 		722DEA7C1B001E3C00C477A6 /* BlissPro-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 722DEA791B001E3C00C477A6 /* BlissPro-ExtraLight.ttf */; };
 		722DEA7D1B001E3C00C477A6 /* BlissPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 722DEA7A1B001E3C00C477A6 /* BlissPro-Regular.ttf */; };
+		72F0E94B1B0EBF3C00372A24 /* BlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F0E9431B0EBF3C00372A24 /* BlurView.m */; };
+		72F0E94C1B0EBF3C00372A24 /* BlurViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F0E9451B0EBF3C00372A24 /* BlurViewManager.m */; };
+		72F0E94D1B0EBF3C00372A24 /* VibrancyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F0E9481B0EBF3C00372A24 /* VibrancyView.m */; };
+		72F0E94E1B0EBF3C00372A24 /* VibrancyViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F0E94A1B0EBF3C00372A24 /* VibrancyViewManager.m */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +144,14 @@
 		722DEA781B001E3C00C477A6 /* BlissPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BlissPro-Bold.ttf"; path = "FlingiOSTests/BlissPro-Bold.ttf"; sourceTree = "<group>"; };
 		722DEA791B001E3C00C477A6 /* BlissPro-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BlissPro-ExtraLight.ttf"; path = "FlingiOSTests/BlissPro-ExtraLight.ttf"; sourceTree = "<group>"; };
 		722DEA7A1B001E3C00C477A6 /* BlissPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BlissPro-Regular.ttf"; path = "FlingiOSTests/BlissPro-Regular.ttf"; sourceTree = "<group>"; };
+		72F0E9421B0EBF3C00372A24 /* BlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurView.h; sourceTree = "<group>"; };
+		72F0E9431B0EBF3C00372A24 /* BlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlurView.m; sourceTree = "<group>"; };
+		72F0E9441B0EBF3C00372A24 /* BlurViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurViewManager.h; sourceTree = "<group>"; };
+		72F0E9451B0EBF3C00372A24 /* BlurViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlurViewManager.m; sourceTree = "<group>"; };
+		72F0E9471B0EBF3C00372A24 /* VibrancyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VibrancyView.h; sourceTree = "<group>"; };
+		72F0E9481B0EBF3C00372A24 /* VibrancyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VibrancyView.m; sourceTree = "<group>"; };
+		72F0E9491B0EBF3C00372A24 /* VibrancyViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VibrancyViewManager.h; sourceTree = "<group>"; };
+		72F0E94A1B0EBF3C00372A24 /* VibrancyViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VibrancyViewManager.m; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -279,6 +291,30 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		72F0E9411B0EBF3C00372A24 /* RNBlur */ = {
+			isa = PBXGroup;
+			children = (
+				72F0E9421B0EBF3C00372A24 /* BlurView.h */,
+				72F0E9431B0EBF3C00372A24 /* BlurView.m */,
+				72F0E9441B0EBF3C00372A24 /* BlurViewManager.h */,
+				72F0E9451B0EBF3C00372A24 /* BlurViewManager.m */,
+			);
+			name = RNBlur;
+			path = "node_modules/react-native-blur/RNBlur";
+			sourceTree = "<group>";
+		};
+		72F0E9461B0EBF3C00372A24 /* RNVibrancy */ = {
+			isa = PBXGroup;
+			children = (
+				72F0E9471B0EBF3C00372A24 /* VibrancyView.h */,
+				72F0E9481B0EBF3C00372A24 /* VibrancyView.m */,
+				72F0E9491B0EBF3C00372A24 /* VibrancyViewManager.h */,
+				72F0E94A1B0EBF3C00372A24 /* VibrancyViewManager.m */,
+			);
+			name = RNVibrancy;
+			path = "node_modules/react-native-blur/RNVibrancy";
+			sourceTree = "<group>";
+		};
 		78C398B11ACF4ADC00677621 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +352,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				72F0E9411B0EBF3C00372A24 /* RNBlur */,
+				72F0E9461B0EBF3C00372A24 /* RNVibrancy */,
 				13B07FAE1A68108700A75B9A /* FlingiOS */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* FlingiOSTests */,
@@ -570,6 +608,10 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				72F0E94B1B0EBF3C00372A24 /* BlurView.m in Sources */,
+				72F0E94C1B0EBF3C00372A24 /* BlurViewManager.m in Sources */,
+				72F0E94E1B0EBF3C00372A24 /* VibrancyViewManager.m in Sources */,
+				72F0E94D1B0EBF3C00372A24 /* VibrancyView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
