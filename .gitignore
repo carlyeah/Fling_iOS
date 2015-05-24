@@ -26,6 +26,10 @@ project.xcworkspace
 #
 node_modules/
 npm-debug.log
+App/dist
+index.ios.js
+#distribution
+
 
 ### WebStorm ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm

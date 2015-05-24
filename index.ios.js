@@ -1,36 +1,12 @@
 'use strict';
-var React = require('react-native');
-var Main = require("./App/Components/Main");
-var Details = require("./App/Components/Details");
+var App, AppRegistry, React;
 
-var {
-    AppRegistry,
-    StyleSheet,
-    Text,
-    View,
-    NavigatorIOS
-    } = React;
+React = require('react-native');
 
-var styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#111111'
-    }
+AppRegistry = React.AppRegistry;
+
+App = require('./App/dist/App');
+
+AppRegistry.registerComponent('FlingiOS', function() {
+  return App;
 });
-
-class FlingiOS extends React.Component {
-    render() {
-        return (
-            <NavigatorIOS
-                style={styles.container}
-                initialRoute={
-                {
-                title: "Fling",
-                component: Main
-                }
-                }/>
-        );
-    }
-}
-
-AppRegistry.registerComponent('FlingiOS', () => FlingiOS);
