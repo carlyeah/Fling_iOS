@@ -3,6 +3,8 @@
  */
 var React = require('react-native');
 
+var isAnimating = false;
+
 var {
     StyleSheet,
     View,
@@ -46,34 +48,53 @@ class ParallaxView extends React.Component {
         this.state = {
             offset: 0,
             marginTop: 0,
+            listMarginTop: 0,
             height: this.props.windowHeight + 64 * screen.scale,
-            opacity : 1,
+            opacity: 1,
             windowIsInView: true
         }
     }
 
     onScroll(event) {
-        if (!this.props.windowHeight) {
-            return;
-        }
-        var offset = event.nativeEvent.contentOffset.y + event.nativeEvent.contentInset.top;
-        var windowIsInView = offset <= this.props.windowHeight;
+        if (!isAnimating) {
+            if (!this.props.windowHeight) {
+                return;
+            }
+            var offset = event.nativeEvent.contentOffset.y + event.nativeEvent.contentInset.top;
+            console.log(offset);
+            var windowIsInView = offset <= this.props.windowHeight;
 
-        if (windowIsInView || this.state.windowIsInView) {
+            if (windowIsInView || this.state.windowIsInView) {
+                var pullingDown = offset <= 0;
+                var srcHeight = this.props.windowHeight + this.props.contentInset.top * screen.scale;
+                var marginTop = pullingDown ? 0 : -offset / 3;
+                var height = srcHeight + (pullingDown ? -offset : 0);
+                var opacity = (1 - Math.min(1, 1.3 * Math.max(0, offset) / this.props.windowHeight));
 
-            var pullingDown = offset <= 0;
-            var srcHeight = this.props.windowHeight + this.props.contentInset.top * screen.scale;
-            var marginTop = pullingDown ? 0 : -offset / 3;
-            var height = srcHeight + (pullingDown ? -offset : 0);
-            var opacity = (1 - Math.min(1, 1.3 * Math.max(0, offset) / this.props.windowHeight));
+                if (offset < -100) {
+                    isAnimating = true;
+                    height = 500;
+                    var listMarginTop = 500;
+                    this.setState({
+                        offset,
+                        marginTop,
+                        listMarginTop,
+                        height,
+                        opacity,
+                        windowIsInView
+                    });
+                } else {
+                    this.setState({
+                        offset,
+                        marginTop,
+                        height,
+                        opacity,
+                        windowIsInView
+                    });
+                }
 
-            this.setState({
-                offset,
-                marginTop,
-                height,
-                opacity,
-                windowIsInView
-            });
+
+            }
         }
     }
 
@@ -98,7 +119,7 @@ class ParallaxView extends React.Component {
                 {
                     !!this.props.blur &&
                     (BlurView || (BlurView = require('react-native-blur').BlurView)) &&
-                    <BlurView blurType={this.props.blur} style={styles.blur} />
+                    <BlurView blurType={this.props.blur} style={styles.blur}/>
                 }
             </Image>
         );
@@ -133,7 +154,7 @@ class ParallaxView extends React.Component {
                     onScroll={this.onScroll}
                     scrollEventThrottle={16}>
                     {this.renderHeader()}
-                    <View style={styles.content}>
+                    <View style={[styles.content, {marginTop: this.state.listMarginTop}]}>
                         {this.props.children}
                     </View>
                 </ScrollView>
