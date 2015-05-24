@@ -2,12 +2,14 @@
  * Created by Carlyeah on 5/21/15.
  */
 var React = require('react-native');
+
 var {
     StyleSheet,
     View,
     Image,
     ScrollView,
     } = React;
+
 var BlurView = require('react-native-blur').BlurView;
 var screen = require('Dimensions').get('window');
 
@@ -34,46 +36,33 @@ var styles = StyleSheet.create({
     }
 });
 
-var ParallaxView = React.createClass({
+class ParallaxView extends React.Component {
 
-    propTypes: {
-        windowHeight: React.PropTypes.number,
-        backgroundSource: React.PropTypes.object,
-        header: React.PropTypes.node,
-        blur: React.PropTypes.string,
-        contentInset: React.PropTypes.object,
-    },
-
-    getDefaultProps: function () {
-        return {
-            windowHeight: 300,
-            contentInset: {
-                top: 0
-            }
-        };
-    },
-
-    getInitialState: function () {
-        return {
+    constructor(props) {
+        super(props);
+        this.onScroll = this.onScroll.bind(this);
+        this.renderBackground = this.renderBackground.bind(this);
+        this.renderHeader = this.renderHeader.bind(this);
+        this.state = {
             offset: 0,
             marginTop: 0,
-            height: this.props.windowHeight + 64,
+            height: this.props.windowHeight + 64 * screen.scale,
             opacity : 1,
             windowIsInView: true
-        };
-    },
+        }
+    }
 
-    onScroll: function (event) {
+    onScroll(event) {
         if (!this.props.windowHeight) {
             return;
         }
-
         var offset = event.nativeEvent.contentOffset.y + event.nativeEvent.contentInset.top;
         var windowIsInView = offset <= this.props.windowHeight;
+
         if (windowIsInView || this.state.windowIsInView) {
 
             var pullingDown = offset <= 0;
-            var srcHeight = this.props.windowHeight + this.props.contentInset.top;
+            var srcHeight = this.props.windowHeight + this.props.contentInset.top * screen.scale;
             var marginTop = pullingDown ? 0 : -offset / 3;
             var height = srcHeight + (pullingDown ? -offset : 0);
             var opacity = (1 - Math.min(1, 1.3 * Math.max(0, offset) / this.props.windowHeight));
@@ -86,9 +75,9 @@ var ParallaxView = React.createClass({
                 windowIsInView
             });
         }
-    },
+    }
 
-    renderBackground: function () {
+    renderBackground() {
         if (!this.props.windowHeight) {
             return null;
         }
@@ -99,8 +88,7 @@ var ParallaxView = React.createClass({
         var style = {
             position: 'absolute',
             backgroundColor: '#2e2f31',
-            // Not using margin top - prevents navbar overlap for now
-            marginTop: 0,
+            marginTop: this.state.marginTop,
             width: screen.width,
             height: this.state.height
         };
@@ -109,13 +97,14 @@ var ParallaxView = React.createClass({
             <Image ref="background" style={style} resizeMode="cover" source={this.props.backgroundSource}>
                 {
                     !!this.props.blur &&
+                    (BlurView || (BlurView = require('react-native-blur').BlurView)) &&
                     <BlurView blurType={this.props.blur} style={styles.blur} />
                 }
             </Image>
         );
-    },
+    }
 
-    renderHeader: function () {
+    renderHeader() {
         if (!this.props.windowHeight) {
             return null;
         }
@@ -131,9 +120,9 @@ var ParallaxView = React.createClass({
                 {this.props.header}
             </View>
         );
-    },
+    }
 
-    render: function () {
+    render() {
         var { style, ...props } = this.props;
         return (
             <View style={[styles.container, style, {offset: 'hidden'}]}>
@@ -151,6 +140,21 @@ var ParallaxView = React.createClass({
             </View>
         );
     }
-});
+}
+
+ParallaxView.propTypes = {
+    windowHeight: React.PropTypes.number,
+    backgroundSource: React.PropTypes.object,
+    header: React.PropTypes.node,
+    blur: React.PropTypes.string,
+    contentInset: React.PropTypes.object,
+};
+
+ParallaxView.defaultProps = {
+    windowHeight: 300,
+    contentInset: {
+        top: 64
+    }
+};
 
 module.exports = ParallaxView;
