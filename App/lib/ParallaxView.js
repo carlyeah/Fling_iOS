@@ -17,10 +17,10 @@ var screen = require('Dimensions').get('window');
 
 var styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 1
     },
     scrollView: {
-        backgroundColor: 'transparent',
+        backgroundColor: 'transparent'
     },
     blur: {
         position: 'absolute',
@@ -28,7 +28,7 @@ var styles = StyleSheet.create({
         right: 0,
         top: 0,
         bottom: 0,
-        backgroundColor: 'transparent',
+        backgroundColor: 'transparent'
     },
     content: {
         shadowColor: '#222',
@@ -168,7 +168,7 @@ ParallaxView.propTypes = {
     backgroundSource: React.PropTypes.object,
     header: React.PropTypes.node,
     blur: React.PropTypes.string,
-    contentInset: React.PropTypes.object,
+    contentInset: React.PropTypes.object
 };
 
 ParallaxView.defaultProps = {
