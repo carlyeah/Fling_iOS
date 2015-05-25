@@ -25,42 +25,33 @@ class Main extends React.Component
 
   constructor: (props) ->
     super props
-    #HEADSUP
-    #We need to bind the functions to let the components use them
-    #Check MotelCell component onSelect attribute
-    #http://stackoverflow.com/questions/29532926/this-value-is-null-in-function-react-native
-    @renderRow = @renderRow.bind(this)
-    @selectMotel = @selectMotel.bind(this)
     @state =
-      dataSource: new ListView.DataSource({
-        rowHasChanged: (row1, row2) => row1 isnt row2
-      }),
-      loaded: no
+      dataSource: new ListView.DataSource (
+        rowHasChanged: (row1, row2) ->
+          row1 != row2)
+      loaded: false
 
   componentDidMount: ->
     @fetchData()
 
   renderLoadingView: ->
     <View style={Styles.container}>
-      <Text>
-        Loading movies...
+      <Text style={Styles.title}>
+        Loading motels...
       </Text>
     </View>
 
   fetchData: =>
-    fetch(REQUEST_URL)
-      .then((response) => response.json())
-      .then((responseData) => {
-        @setState({
-          dataSource: this.state.dataSource.cloneWithRows(responseData.movies),
-          loaded: yes
-        })
-      }).done()
+    fetch(REQUEST_URL).then((response) =>
+      response.json()
+    ).then((responseData) =>
+      @setState
+        dataSource: @state.dataSource.cloneWithRows(responseData.movies)
+        loaded: true
+    ).done()
 
   selectMotel: (motel) =>
-    @props.navigator.push
-      title: "Details",
-      component: MotelDetails
+    console.log "motel"
 
   renderRow: (motel) =>
     <MotelCell
@@ -70,6 +61,8 @@ class Main extends React.Component
       />
 
   footer: =>
+    unless @state.loaded
+      return @renderLoadingView()
     #automaticallyAdjustContentInsets - false remove an awkard space in the table parallax control
     <ListView
       automaticallyAdjustContentInsets={false}

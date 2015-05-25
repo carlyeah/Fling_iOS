@@ -5,6 +5,7 @@ module.exports =
         backgroundColor: 'black',
 
     container:
+        color: "white",
         flex: 1,
         paddingLeft: 14,
         flexDirection: 'column',
@@ -65,7 +66,7 @@ module.exports =
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'center'
-        
+
     listView:
         #FIXME this shouldn't have a marginTop to fix the space between the top and the bottom. We need to keep an eye on this
         marginTop: -64,
