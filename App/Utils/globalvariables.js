@@ -6,5 +6,5 @@ module.exports = {
     detailHeaderBackground: '#565155',
     orange: '#ff6204',
     background: '#f5f5f5',
-    textColor: '#666',
-}
+    textColor: '#666'
+};

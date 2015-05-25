@@ -12,7 +12,7 @@ var styles = StyleSheet.create({
     flex: 1,
     marginLeft: 15
   }
-})
+});
 
 class Separator extends React.Component{
   render(){

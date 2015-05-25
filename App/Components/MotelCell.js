@@ -2,7 +2,7 @@
  * Created by Carlyeah on 5/17/15.
  */
 var React = require('react-native');
-var Styles = require("../Styles/fl-main")
+var Styles = require("../Styles/fl-main");
 
 var {
     View,
@@ -18,7 +18,6 @@ var {
 var styles = StyleSheet.create(Styles);
 
 class MotelCell extends React.Component {
-
 
     render() {
         return(

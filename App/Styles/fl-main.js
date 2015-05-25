@@ -6,12 +6,10 @@ module.exports = {
     mainContainer: {
         flex: 1,
         marginTop: 65,
-        backgroundColor: 'black',
+        backgroundColor: 'black'
     },
     container: {
         flex: 1,
-        //paddingTop: 14,
-        //paddingBottom: 14,
         paddingLeft: 14,
         flexDirection: 'column',
         backgroundColor: 'black',

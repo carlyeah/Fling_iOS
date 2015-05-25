@@ -7,13 +7,13 @@ module.exports = {
     mainContainer: {
         flex: 1,
         marginTop: 65,
-        backgroundColor: Styles.detailRowBackground,
+        backgroundColor: Styles.detailRowBackground
     },
     bottomContainer: {
         marginTop: -65,
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: Styles.detailRowBackground,
+        backgroundColor: Styles.detailRowBackground
     },
     rowContainer: {
         paddingRight: 16,
@@ -55,12 +55,12 @@ module.exports = {
     starImg: {
         height: 12,
         width: 12,
-        marginLeft: 3,
+        marginLeft: 3
     },
     starsContainer: {
         alignSelf: 'center',
         flex: 1,
         justifyContent: "flex-end",
-        flexDirection: 'row',
+        flexDirection: 'row'
     }
 };
