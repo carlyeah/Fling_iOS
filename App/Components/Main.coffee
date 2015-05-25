@@ -50,14 +50,14 @@ class Main extends React.Component
         loaded: true
     ).done()
 
-  selectMotel: (motel) =>
+  selectMotel: (motel) ->
     @props.navigator.push
       title: 'Details'
       component: MotelDetails
 
   renderRow: (motel) =>
     <MotelCell
-      onSelect={@selectMotel(motel)}
+      onSelect={ => @selectMotel(motel)}
       key={motel.id}
       motel={motel}
       />
