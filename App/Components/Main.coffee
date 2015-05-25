@@ -51,7 +51,9 @@ class Main extends React.Component
     ).done()
 
   selectMotel: (motel) =>
-    console.log "motel"
+    @props.navigator.push
+      title: 'Details'
+      component: MotelDetails
 
   renderRow: (motel) =>
     <MotelCell
