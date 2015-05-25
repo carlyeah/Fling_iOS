@@ -48,7 +48,14 @@ class Main extends React.Component
     </View>
 
   fetchData: =>
-    console.log "hola"
+    fetch(REQUEST_URL)
+      .then((response) => response.json())
+      .then((responseData) => {
+        @setState({
+          dataSource: this.state.dataSource.cloneWithRows(responseData.movies),
+          loaded: yes
+        })
+      }).done()
 
   selectMotel: (motel) =>
     @props.navigator.push
