@@ -9,7 +9,7 @@ MyCustomView = React.createClass
     </Text>
       <Text style={styles.instructions}>
         To get started, edit index.ios.coffee{'\n'}
-        Press cosas to test{@props.myCustomProp}
+        Press s to test{@props.myCustomProp}
       </Text>
     </View>
 

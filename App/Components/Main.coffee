@@ -1,25 +1,28 @@
+'use strict'
+
 React = require('react-native')
-ParallaxView = require("../lib/ParallaxView")
+ParallaxView = require("react-native-parallax-view")
 Styles = require("../Styles/fl-main")
 MotelCell = require("./MotelCell")
 MotelDetails = require("./Details")
 
 {
-View,
-Text,
-StyleSheet,
-TextInput,
-TouchableHighlight,
-ActivityIndicatorIOS,
-ListView,
-Image
-} = React
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  TouchableHighlight,
+  ActivityIndicatorIOS,
+  ListView,
+  Image
+  } = React
 
-styles = StyleSheet.create(Styles);
+styles = StyleSheet.create(Styles)
 
-REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/master/docs/MoviesExample.json';
+REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/master/docs/MoviesExample.json'
 
 class Main extends React.Component
+
   constructor: (props) ->
     super props
     #HEADSUP
@@ -32,71 +35,48 @@ class Main extends React.Component
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 isnt row2
       }),
-    loaded: false
+      loaded: no
 
   componentDidMount: ->
     @fetchData()
 
   renderLoadingView: ->
     <View style={Styles.container}>
-      <Text>Loading movies...</Text>
+      <Text>
+        Loading movies...
+      </Text>
     </View>
 
-  fetchData: ->
-fetch(REQUEST_URL)
-.then((response) => response.json())
-.then((responseData) => {
-  this.setState({
-    dataSource: this.state.dataSource.cloneWithRows(responseData.movies),
-    loaded: true
-  });
-}).done();
-}
+  fetchData: =>
+    console.log "hola"
 
-selectMotel(motel){
-  this.props.navigator.push({
-    title: "Details",
-    component: MotelDetails
-  });
-}
+  selectMotel: (motel) =>
+    @props.navigator.push
+      title: "Details",
+      component: MotelDetails
 
-renderRow(motel){
-return (
-<MotelCell
-onSelect={() => this.selectMotel(motel)}
-key={motel.id}
-motel={motel}
-/>
-        );
-    }
+  renderRow: (motel) =>
+    <MotelCell
+      onSelect={@selectMotel(motel)}
+      key={motel.id}
+      motel={motel}
+      />
 
-    footer() {
-        if (!this.state.loaded) {
-            return this.renderLoadingView();
-        }
+  footer: =>
+    #automaticallyAdjustContentInsets - false remove an awkard space in the table parallax control
+    <ListView
+      automaticallyAdjustContentInsets={false}
+      dataSource={@state.dataSource}
+      renderRow={@renderRow}
+      style={Styles.listView}
+      />
 
-        return (
-            //automaticallyAdjustContentInsets - false remove an awkard space in the table parallax control
-            <ListView
-                automaticallyAdjustContentInsets={false}
-                dataSource={this.state.dataSource}
-                renderRow={this.renderRow}
-                style={Styles.listView}
-                />
-);
-}
+  render: ->
+    <ParallaxView
+      style={Styles.mainContainer}
+      windowHeight={200}
+      backgroundSource={require('image!motel_demo')}>
+      {@footer()}
+    </ParallaxView>
 
-
-render() {
-return (
-<ParallaxView
-style={Styles.mainContainer}
-windowHeight={200}
-backgroundSource={require('image!motel_demo')}>
-{this.footer()}
-</ParallaxView>
-        )
-    }
-}
-
-module.exports = Main;
+module.exports = Main
