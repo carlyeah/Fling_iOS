@@ -2,6 +2,7 @@
 var React = require('react-native');
 var Main = require("./App/Components/Main");
 var Details = require("./App/Components/Details");
+var Presentation = require("./App/Components/Presentation");
 
 var {
     AppRegistry,
