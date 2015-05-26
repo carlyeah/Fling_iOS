@@ -20,6 +20,10 @@ class Presentation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            position: {
+                top: 200,
+                left: 0
+            },
             height: this.props.imageHeight,
         }
     }
@@ -29,12 +33,14 @@ class Presentation extends React.Component {
 
             // Start state
             start: {
-                height: this.state.height,
+                top: this.state.position.top,
+                left: this.state.position.left
             },
 
             // End state
             end: {
-                height: this.state.height * 2
+                top: 0,
+                left: 0
             },
 
             // Animation duration
@@ -46,7 +52,7 @@ class Presentation extends React.Component {
             // Update the component's state each frame
             frame: (tweenFrame) => {
                 this.setState({
-                    height: tweenFrame
+                    position: tweenFrame
                 });
             },
 
@@ -65,7 +71,8 @@ class Presentation extends React.Component {
     render() {
 
         var style = {
-            marginTop: 200,
+            top: this.state.position.top,
+            left: this.state.position.left,
             height: this.state.height
         };
 
