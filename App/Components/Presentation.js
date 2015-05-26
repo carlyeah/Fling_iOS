@@ -22,9 +22,9 @@ class Presentation extends React.Component {
         this.state = {
             position: {
                 top: 200,
-                left: 0
-            },
-            height: this.props.imageHeight,
+                left: 0,
+                height: 100
+            }
         }
     }
 
@@ -34,17 +34,19 @@ class Presentation extends React.Component {
             // Start state
             start: {
                 top: this.state.position.top,
-                left: this.state.position.left
+                left: this.state.position.left,
+                height: this.state.position.height
             },
 
             // End state
             end: {
-                top: 0,
-                left: 0
+                top: this.state.position.top,
+                left: this.state.position.left,
+                height: 500
             },
 
             // Animation duration
-            duration: 500,
+            duration: 300,
 
             // Tween function
             tween: 'easeOutBack',
@@ -73,7 +75,7 @@ class Presentation extends React.Component {
         var style = {
             top: this.state.position.top,
             left: this.state.position.left,
-            height: this.state.height
+            height: this.state.position.height
         };
 
         return (
