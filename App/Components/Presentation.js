@@ -19,34 +19,30 @@ class Presentation extends React.Component {
 
     constructor(props) {
         super(props);
+        this.animateDoorSign = this.animateDoorSign.bind(this);
         this.state = {
             position: {
-                top: 200,
-                left: 0,
                 height: 100
             }
         }
     }
 
-    animateDoorSign() {
+    animateDoorSign(animationCountDown) {
+        console.log(animationCountDown);
         var animation = new RNTAnimation({
 
             // Start state
             start: {
-                top: this.state.position.top,
-                left: this.state.position.left,
                 height: this.state.position.height
             },
 
             // End state
             end: {
-                top: this.state.position.top,
-                left: this.state.position.left,
-                height: 500
+                height: 300
             },
 
             // Animation duration
-            duration: 300,
+            duration: 150,
 
             // Tween function
             tween: 'easeOutBack',
@@ -60,11 +56,21 @@ class Presentation extends React.Component {
 
             // Optional callback
             done: () => {
-
-                console.log('All done!');
-
                 // Optionally reverse the animation
+                var delayTime = 0;
                 animation.reverse(() => {
+                    animationCountDown++;
+                    if (animationCountDown > 1) {
+                        animationCountDown = 0;
+                        delayTime = 1000;
+                    } else {
+                        delayTime = 0;
+                    }
+                    setTimeout(()=> {
+                            this.animateDoorSign(animationCountDown)
+                        }, delayTime
+                    )
+
                 });
             }
         });
@@ -73,22 +79,23 @@ class Presentation extends React.Component {
     render() {
 
         var style = {
-            top: this.state.position.top,
-            left: this.state.position.left,
+            backgroundColor: "transparent",
+            width: this.state.position.height,
             height: this.state.position.height
         };
 
         return (
             <TouchableHighlight
-                onPress={this.animateDoorSign.bind(this)}
+                style={styles.container}
+                onPress={() => this.animateDoorSign(0)}
                 underlayColor="#88D4F5">
                 <View style={styles.container}>
                     <Image style={style}
                            resizeMode="contain"
-                           source={require('image!intro_ic_doorsign')}/>
+                           source={require('image!intro_ic_heart')}/>
                 </View>
-            </TouchableHighlight>
-        )
+            </TouchableHighlight>)
+
     }
 }
 

@@ -8,9 +8,20 @@ module.exports = {
     container: {
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: Styles.introBackground
+        justifyContent: 'center',
+        backgroundColor: Styles.introBackground,
+        alignItems: "center"
     },
     doorsign: {
-
+        width: 350,
+        height: 350
+    },
+    heart:{
+        backgroundColor: "transparent",
+        width: 100,
+        height: 100,
+        position: "absolute",
+        left: 130,
+        top: 330
     }
 };
