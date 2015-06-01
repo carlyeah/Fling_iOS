@@ -28,7 +28,6 @@ class Presentation extends React.Component {
     }
 
     animateDoorSign(animationCountDown) {
-        console.log(animationCountDown);
         var animation = new RNTAnimation({
 
             // Start state
