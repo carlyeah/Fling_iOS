@@ -1,8 +1,9 @@
 var React = require('react-native');
-var ParallaxView = require("../lib/ParallaxView");
+var ParallaxView = require("../lib/ParallaxScroller");
 var Styles = require("../Styles/fl-main");
 var MotelCell = require("./MotelCell");
 var MotelDetails = require("./Details");
+var screen = require('Dimensions').get('window');
 
 var {
     View,
@@ -14,8 +15,6 @@ var {
     ListView,
     Image
     } = React;
-
-var styles = StyleSheet.create(Styles);
 
 var REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/master/docs/MoviesExample.json';
 
@@ -29,6 +28,7 @@ class Main extends React.Component {
         //http://stackoverflow.com/questions/29532926/this-value-is-null-in-function-react-native
         this.renderRow = this.renderRow.bind(this);
         this.selectMotel = this.selectMotel.bind(this);
+        this.testView = this.testView.bind(this);
         this.state = {
             dataSource: new ListView.DataSource({
                 rowHasChanged: (row1, row2) => row1 !== row2
@@ -42,8 +42,11 @@ class Main extends React.Component {
     }
 
     renderLoadingView() {
+        var loading = {
+            height: 1000
+        }
         return (
-            <View style={Styles.container}>
+            <View style={loading}>
                 <Text>
                     Loading movies...
                 </Text>
@@ -62,14 +65,14 @@ class Main extends React.Component {
             }).done();
     }
 
-    selectMotel(motel){
+    selectMotel(motel) {
         this.props.navigator.push({
             title: "Details",
             component: MotelDetails
         });
     }
 
-    renderRow(motel){
+    renderRow(motel) {
         return (
             <MotelCell
                 onSelect={() => this.selectMotel(motel)}
@@ -95,13 +98,30 @@ class Main extends React.Component {
         );
     }
 
+    testView(){
+        var testStyle={
+            backgroundColor: 'red',
+            color: "white",
+            width: screen.width,
+            height: 500
+        };
+        return(
+            <View style={testStyle}></View>
+        )
+    }
+
 
     render() {
+        var style = {
+
+            backgroundColor: 'red',
+            color: "white"
+        };
         return (
             <ParallaxView
                 style={Styles.mainContainer}
-                windowHeight={200}
-                backgroundSource={require('image!motel_demo')}>
+                topHeader={this.testView()}
+                windowHeight={200}>
                 {this.footer()}
             </ParallaxView>
         )

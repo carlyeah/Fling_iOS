@@ -1,4 +1,7 @@
 /**
+ * Created by Carlyeah on 5/31/15.
+ */
+/**
  * Created by Carlyeah on 5/21/15.
  */
 var React = require('react-native');
@@ -10,7 +13,6 @@ var {
     ScrollView,
     } = React;
 
-var BlurView = require('react-native-blur').BlurView;
 var screen = require('Dimensions').get('window');
 
 var styles = StyleSheet.create({
@@ -81,7 +83,7 @@ class ParallaxView extends React.Component {
         if (!this.props.windowHeight) {
             return null;
         }
-        if (!this.props.backgroundSource) {
+        if (!this.props.backgroundSource && !this.props.topHeader) {
             return null;
         }
 
@@ -93,22 +95,26 @@ class ParallaxView extends React.Component {
             height: this.state.height
         };
 
-        return (
-            <Image ref="background" style={style} resizeMode="cover" source={this.props.backgroundSource}>
-                {
-                    !!this.props.blur &&
-                    (BlurView || (BlurView = require('react-native-blur').BlurView)) &&
-                    <BlurView blurType={this.props.blur} style={styles.blur} />
-                }
-            </Image>
-        );
+        if(this.props.backgroundSource)
+            return (
+                <Image ref="background" style={style} resizeMode="cover" source={this.props.backgroundSource}>
+                </Image>
+            );
+        if(this.props.topHeader)
+            return (
+                <View ref="background" style={style}>
+                    {this.props.topHeader}
+                </View>
+            );
+
+        return null;
     }
 
     renderHeader() {
         if (!this.props.windowHeight) {
             return null;
         }
-        if (!this.props.backgroundSource) {
+        if (!this.props.backgroundSource && !this.props.topHeader) {
             return null;
         }
         return (
@@ -144,6 +150,7 @@ class ParallaxView extends React.Component {
 
 ParallaxView.propTypes = {
     windowHeight: React.PropTypes.number,
+    backgroundSource: React.PropTypes.object,
     backgroundSource: React.PropTypes.object,
     header: React.PropTypes.node,
     blur: React.PropTypes.string,

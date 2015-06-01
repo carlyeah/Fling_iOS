@@ -1,5 +1,5 @@
 var React = require('react-native');
-var ParallaxView = require("../lib/ParallaxView");
+var ParallaxView = require("../lib/ParallaxScroller");
 var Separator = require("./Helpers/Separator");
 var Styles = require("../Styles/fl-details");
 
