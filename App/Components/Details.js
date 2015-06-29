@@ -17,7 +17,6 @@ var {
 var styles = StyleSheet.create(Styles);
 
 class Details extends React.Component {
-
     footer() {
         return (
             //automaticallyAdjustContentInsets - false remove an awkard space in the table parallax control

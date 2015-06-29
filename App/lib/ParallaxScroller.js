@@ -151,7 +151,6 @@ class ParallaxView extends React.Component {
 ParallaxView.propTypes = {
     windowHeight: React.PropTypes.number,
     backgroundSource: React.PropTypes.object,
-    backgroundSource: React.PropTypes.object,
     header: React.PropTypes.node,
     blur: React.PropTypes.string,
     contentInset: React.PropTypes.object,
